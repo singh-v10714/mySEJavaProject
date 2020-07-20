@@ -1,0 +1,51 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Main {
+	PreparedStatement pst;
+	Connection con;
+	int Area;
+	int Cost;
+	String PostalCode;
+
+	public static void main(String[] args) {
+
+		Property prop1 = new Property();
+		User user1 = new User();
+		prop1.setArea(10000);
+		prop1.setCost(100000);
+		prop1.setPostalCode("V3V6Y7");
+		
+	}
+	
+	
+    void doConnect()
+ {
+ 	    try {
+		      	Class.forName("com.mysql.jdbc.Driver");
+		      	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javaworkbench","root","bce");
+		     	System.out.println("Connection Established");
+	} 
+ 	     catch (ClassNotFoundException | SQLException e) 
+ 	{
+			e.printStackTrace();
+		}
+ }
+    void doSaveProperty()
+    {
+   								      
+		try {
+			pst=con.prepareStatement("insert into properties(area,cost, postalcode)values(?,?,?)");
+		    pst.setInt(1, Area);
+		    pst.setInt(2, Cost);
+			pst.setString(3, PostalCode);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}   	
+    	
+      }    	
+      }
+}

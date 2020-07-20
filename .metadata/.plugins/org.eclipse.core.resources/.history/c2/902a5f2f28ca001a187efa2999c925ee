@@ -1,0 +1,67 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Main {
+	PreparedStatement pst;
+	Connection con;
+
+	public static void main(String[] args) {
+		Property prop1 = new Property();
+		User user1 = new User();
+		
+		prop1.setArea(10000);
+		prop1.setCost(100000);
+		prop1.setPostalCode("V3V6Y7");
+
+	}
+	
+	
+    void doConnect()
+ {
+ 	    try {
+		      	Class.forName("com.mysql.jdbc.Driver");
+		      	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javaworkbench","root","bce");
+		     	System.out.println("Connection Established");
+	} 
+ 	     catch (ClassNotFoundException | SQLException e) 
+ 	{
+			e.printStackTrace();
+		}
+ }
+    void doSave(ActionEvent event)
+    {
+   
+    	if(txtNumber.getText().isEmpty()||txtArea.getText().isEmpty()||txtPath.getText().isEmpty()||txtAddress.getText().isEmpty()||txtPrice.getText().isEmpty()||txtDimen.getText().isEmpty()||txtCity.getText().isEmpty()||txtLocation.getText().isEmpty())
+		{
+			doAlert("Fill All Fields");
+			return;
+		}
+	
+	try {
+		
+												      
+		pst=con.prepareStatement("insert into properties(area,cost postal code)values(null,?,?,?,?,?,?,?,?,?,?,Current_date)");
+	    pst.setString(1, txtName.getText());
+		pst.setString(2, txtNumber.getText());
+		pst.setString(3, txtAddress.getText());
+        pst.setString(4, txtType.getEditor().getText());
+		pst.setInt(5,Integer.parseInt(txtPrice.getText()));
+		pst.setFloat(6,Float.parseFloat(txtArea.getText()));
+		pst.setString(7, txtDimen.getText());
+		pst.setString(8, txtCity.getText());
+		pst.setString(9, txtLocation.getText());
+		pst.setString(10, txtPath.getText());
+         pst.executeUpdate();
+		 System.out.println("done");
+			doAlert("Record Saved.....");
+	    }
+	        catch (SQLException e) 
+	   {
+		     e.printStackTrace();
+	   }
+    	
+    	
+      }
+}

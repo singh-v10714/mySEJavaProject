@@ -1,0 +1,32 @@
+public class Property {
+   private int Area;
+   private int Cost;
+   private String PostalCode;
+   
+   public int getArea()
+   {
+	   return Area;
+   }
+   public int getCost()
+   {
+	   return Cost;
+   }
+   public  String getPostalCode()
+   {
+	   return Area;
+   }
+   public void setArea()
+   {
+	   this.Area = Area;
+	   return Area;
+   }
+   public void setCost()
+   {
+	   return Cost;
+   }
+   public  vpoid setPostalCode()
+   {
+	   return PostalCode;
+   }
+   
+}

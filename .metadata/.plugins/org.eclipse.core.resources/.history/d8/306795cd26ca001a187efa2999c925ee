@@ -1,0 +1,33 @@
+
+public class User {
+	   private String LName;
+	   private String Fname;
+	   private String Type;
+	   
+	   public String getLName()
+	   {
+		   return LName;
+	   }
+	   public String getCost()
+	   {
+		   return Cost;
+	   }
+	   public  String getPostalCode()
+	   {
+		   return PostalCode;
+	   }
+	   public void setLName(String LName)
+	   {
+		   this.LName = LName;
+	   }
+	   public void setCost(String Cost)
+	   {
+		   this.Cost = Cost;
+	   }
+	   public  void setPostalCode(String PostalCode)
+	   {
+		   this.PostalCode = PostalCode;
+	   }
+	   
+
+}
